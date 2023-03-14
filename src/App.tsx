@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 
 import { fetchUsers } from "./services/fetch-users";
+import { UsersT } from "./types/Todos";
 import Users from "./components/users/Users";
 
 const App = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<UsersT[]>([]);
 
   useEffect(() => {
     const getUsers = async () => {
-      const data = await fetchUsers();
+      let data: UsersT[] = await fetchUsers();
       setUsers(data);
     }
     getUsers();
   }, []);
 
   return (
-    <section className="users">
+    <section>
       <Users users={users} />
     </section>
   );

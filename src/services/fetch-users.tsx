@@ -4,7 +4,7 @@ export const fetchUsers = async () => {
         if(!response.ok) throw new Error('Response isn\'t ok!!');
         const data = await response.json();
         return data;
-    } catch (error) {
+    } catch (error: any) {
         return error.message;
     }
 }

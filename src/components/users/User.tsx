@@ -1,6 +1,11 @@
 import React from 'react';
+import { UsersT } from '../../types/Todos';
 
-const User = ({ user }) => {
+type UserProps = {
+    user: UsersT
+}
+
+const User = ({ user }: UserProps) => {
     const { name, email, address } = user;
     return (
         <div className="user">
